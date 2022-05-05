@@ -1,0 +1,33 @@
+body {
+    font: 16px/1.4 'Roboto', sans-serif;
+    background: #ceecd369;
+    min-height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.keyboard__input {
+    width: 80%;
+}
+
+.app {
+    display: flex;
+    width: 80%;
+    height: 20%;
+    justify-content: center;
+}
+
+.keyboard {
+    background: rgba(72, 116, 105, 0.637);
+    display: flex;
+    gap: 10px;
+}
+
+.key {
+    width: 30px;
+    height: 30px;
+}
