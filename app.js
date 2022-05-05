@@ -45,11 +45,12 @@ class Keyboard {
     }
 
     inputFocus() {
-        
+
     }
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-    new Keyboard('RU').init();
+    // new Keyboard('RU').init();
+    new Keyboard('EN').init();
 });
 
