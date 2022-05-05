@@ -64,6 +64,7 @@ const keyboardList = {
         'ArrowLeft': '&#11164;',
         'ArrowDown': '&#11167;',
         'ArrowRight': '&#11166;',
+        'Insert': 'Ins'
     }
 }
 
