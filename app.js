@@ -43,6 +43,10 @@ class Keyboard {
             keyboardArea.innerHTML += `<button class="key key__${key}" data-key="${key}">${keys[key]}</button>`
         }
     }
+
+    inputFocus() {
+        
+    }
 }
 
 window.addEventListener("DOMContentLoaded", () => {

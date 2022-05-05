@@ -28,6 +28,7 @@ const keyboardList = {
         'BracketLeft': 'х',
         'BracketRight': 'ъ',
         'Backslash': '&Backslash;',
+        'Delete': 'Del',
         'CapsLock': 'Caps Lock',
         'KeyA': 'ф',
         'KeyS': 'ы',
@@ -52,13 +53,17 @@ const keyboardList = {
         'Comma': 'б',
         'Period': 'ю',
         'Slash': '.',
+        'ArrowUp': '&#11165;',
         'ShiftRight': 'RShift',
         'ControlLeft': 'LCtrl',
         'MetaLeft': 'win',
         'AltLeft': 'LAlt',
         'Space': 'Пробел',
         'AltRight': 'RAlt',
-        'ControlRight': 'RCtrl'
+        'ControlRight': 'RCtrl',
+        'ArrowLeft': '&#11164;',
+        'ArrowDown': '&#11167;',
+        'ArrowRight': '&#11166;',
     }
 }
 
