@@ -1,4 +1,4 @@
-
+import { getKeys } from './helpers/keyboardList.js';
 
 class Keyboard {
     constructor(lang) {
@@ -10,8 +10,10 @@ class Keyboard {
      */
     init() {
         this.favicon();
+        this.keys = getKeys(this.lang);
         console.log('KeyBoard init');
-        console.log('Lang = ' + this.lang)
+        console.log('Lang = ' + this.lang);
+        console.log(this.keys);
     }
 
     //change favicon (RU / EN)

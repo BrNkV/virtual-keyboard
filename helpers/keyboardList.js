@@ -67,8 +67,6 @@ const keyboardList = {
  * @param {'RU' or 'EN'} lang 
  * @return key lang list
  */
-function getKeys(lang) {
+export function getKeys(lang) {
     return keyboardList[lang];
 }
-
-export default getKeys();
