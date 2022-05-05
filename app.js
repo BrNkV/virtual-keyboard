@@ -3,6 +3,9 @@ import { getKeys } from './helpers/keyboardList.js';
 class Keyboard {
     constructor(lang) {
         this.lang = lang;
+        this.keys = getKeys(this.lang);
+        this.appMount = document.querySelector('.app');
+
     }
 
     /**
@@ -10,7 +13,10 @@ class Keyboard {
      */
     init() {
         this.favicon();
-        this.keys = getKeys(this.lang);
+        this.generateKeyboard(this.appMount);
+
+
+
         console.log('KeyBoard init');
         console.log('Lang = ' + this.lang);
         console.log(this.keys);
@@ -25,12 +31,17 @@ class Keyboard {
             : console.log('ERROR: lang not RU / EN');
     }
 
-    generateKeyboard() {
-
+    generateKeyboard(div) {
+        div.innerHTML = `<div class="keyboard"></div>`;
+        this.generateKeys(this.keys);
     }
 
-    generateKeys() {
-
+    //TODO add if key ==... <br>
+    generateKeys(keys) {
+        let keyboardArea = document.querySelector('.keyboard');
+        for (const key in keys) {
+            keyboardArea.innerHTML += `<button class="key key__${key}" data-key="${key}">${keys[key]}</button>`
+        }
     }
 }
 

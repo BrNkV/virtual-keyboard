@@ -22,12 +22,14 @@ body {
 }
 
 .keyboard {
+    width: 100%;
     background: rgba(72, 116, 105, 0.637);
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
 .key {
-    width: 30px;
-    height: 30px;
+    min-width: 45px;
+    height: 45px;
 }

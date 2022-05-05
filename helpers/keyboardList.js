@@ -27,7 +27,7 @@ const keyboardList = {
         'KeyP': 'з',
         'BracketLeft': 'х',
         'BracketRight': 'ъ',
-        'Backslash': "'\'",
+        'Backslash': '&Backslash;',
         'CapsLock': 'Caps Lock',
         'KeyA': 'ф',
         'KeyS': 'ы',
