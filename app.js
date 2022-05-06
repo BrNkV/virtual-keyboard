@@ -15,7 +15,8 @@ class Keyboard {
     init() {
         this.favicon();
         this.generateKeyboard(this.appMount);
-        this.keyListener();
+        this.keyClickListener();
+        this.keyDownListener();
 
 
         console.log('KeyBoard init');
@@ -47,16 +48,30 @@ class Keyboard {
     inputFocus() {
         this.inputArea.focus();
     }
-    //FIXME
-    keyListener() {
+    //FIXME maybe need switch to spec btn
+    keyClickListener() {
         let keys = document.querySelectorAll('.key');
         keys.forEach(e => {
             e.addEventListener('click', () => {
                 this.inputFocus();
                 console.log(e.innerHTML)
+                this.addInput(e.innerHTML);
             })
         })
     }
+
+    //FIXME
+    keyDownListener() {
+        window.addEventListener('keydown', () => {
+            this.inputFocus();
+            console.log(this.key)
+        })
+    }
+
+    addInput(symbol) {
+        this.inputArea.innerHTML += `${symbol}`;
+    }
+
 }
 
 window.addEventListener("DOMContentLoaded", () => {
