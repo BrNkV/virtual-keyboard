@@ -1,10 +1,11 @@
 import { getKeys } from './helpers/keyboardList.js';
 
 class Keyboard {
-    constructor(lang) {
+    constructor(lang = 'RU', div = '.app', input = '.keyboard__input') {
         this.lang = lang;
         this.keys = getKeys(this.lang);
-        this.appMount = document.querySelector('.app');
+        this.appMount = document.querySelector(div);
+        this.inputArea = document.querySelector(input);
 
     }
 
@@ -14,7 +15,7 @@ class Keyboard {
     init() {
         this.favicon();
         this.generateKeyboard(this.appMount);
-
+        this.keyListener();
 
 
         console.log('KeyBoard init');
@@ -36,7 +37,6 @@ class Keyboard {
         this.generateKeys(this.keys);
     }
 
-    //TODO add if key ==... <br>
     generateKeys(keys) {
         let keyboardArea = document.querySelector('.keyboard');
         for (const key in keys) {
@@ -45,12 +45,22 @@ class Keyboard {
     }
 
     inputFocus() {
-
+        this.inputArea.focus();
+    }
+    //FIXME
+    keyListener() {
+        let keys = document.querySelectorAll('.key');
+        keys.forEach(e => {
+            e.addEventListener('click', () => {
+                this.inputFocus();
+                console.log(e.innerHTML)
+            })
+        })
     }
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-    // new Keyboard('RU').init();
-    new Keyboard('EN').init();
+    new Keyboard('RU', '.app', '.keyboard__input').init();
+    // new Keyboard('EN', '.app', '.keyboard__input').init();
 });
 
