@@ -13,7 +13,7 @@ const keyboardList = {
         'Digit0': '0',
         'Minus': '-',
         'Equal': '=',
-        'Backspace': 'Backspace',
+        'Backspace': 'Back space',
         'Tab': 'Tab',
         'KeyQ': 'й',
         'KeyW': 'ц',

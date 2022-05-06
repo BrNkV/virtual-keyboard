@@ -22,7 +22,8 @@ body {
 }
 
 .keyboard {
-    width: 100%;
+    /* width: 100%; */
+    max-width: 1280px;
     background: rgba(72, 116, 105, 0.637);
     /* display: flex;
     flex-wrap: wrap; */

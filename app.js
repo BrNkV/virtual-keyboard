@@ -17,6 +17,7 @@ class Keyboard {
         this.generateKeyboard(this.appMount);
         this.keyClickListener();
         this.keyDownListener();
+        this.inputListener();
 
 
         console.log('KeyBoard init');
@@ -62,14 +63,21 @@ class Keyboard {
 
     //FIXME
     keyDownListener() {
-        window.addEventListener('keydown', () => {
+        window.addEventListener('keydown', (e) => {
             this.inputFocus();
-            console.log(this.key)
+            console.log(e)
+            this.addInput(e.key);
         })
     }
-
+    //FIXME
     addInput(symbol) {
         this.inputArea.innerHTML += `${symbol}`;
+    }
+    //FIXME
+    inputListener() {
+        this.inputArea.addEventListener('change', () => {
+            console.log('input change');
+        })
     }
 
 }
