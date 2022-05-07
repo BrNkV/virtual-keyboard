@@ -1,12 +1,14 @@
 import { getKeys } from './helpers/keyboardList.js';
 
+// function switchLang() { }
+
+
 class Keyboard {
     constructor(lang = 'RU', div = '.app', input = '.keyboard__input') {
         this.lang = lang;
-        this.keys = getKeys(this.lang);
+        this.keysLang = getKeys(this.lang);
         this.appMount = document.querySelector(div);
         this.inputArea = document.querySelector(input);
-
     }
 
     /**
@@ -20,9 +22,9 @@ class Keyboard {
         this.inputListener();
 
 
-        console.log('KeyBoard init');
-        console.log('Lang = ' + this.lang);
-        console.log(this.keys);
+        // console.log('KeyBoard init');
+        // console.log('Lang = ' + this.lang);
+        // console.log(this.keysLang);
     }
 
     //change favicon (RU / EN)
@@ -36,7 +38,7 @@ class Keyboard {
 
     generateKeyboard(div) {
         div.innerHTML = `<div class="keyboard"></div>`;
-        this.generateKeys(this.keys);
+        this.generateKeys(this.keysLang);
     }
 
     generateKeys(keys) {
@@ -55,29 +57,83 @@ class Keyboard {
         keys.forEach(e => {
             e.addEventListener('click', () => {
                 this.inputFocus();
-                console.log(e.innerHTML)
-                this.addInput(e.innerHTML);
+                console.log(e)
+                // this.addInput(e.innerHTML);
+                this.keyClickCheck(e);
             })
         })
     }
 
     //FIXME
     keyDownListener() {
-        window.addEventListener('keydown', (e) => {
+        this.inputArea.addEventListener('keydown', (e) => {
             this.inputFocus();
-            console.log(e)
-            this.addInput(e.key);
+            // console.dir(e.target);
         })
     }
     //FIXME
     addInput(symbol) {
-        this.inputArea.innerHTML += `${symbol}`;
+        this.inputArea.value += `${symbol}`;
     }
     //FIXME
     inputListener() {
         this.inputArea.addEventListener('change', () => {
             console.log('input change');
         })
+    }
+
+    keyClickCheck(key) {
+        let data = key.getAttribute('data-key');
+
+        switch (data) {
+            case 'Tab':
+
+                break;
+            case 'CapsLock':
+
+                break;
+            case 'ShiftLeft':
+
+                break;
+            case 'ShiftRight':
+
+                break;
+            case 'ControlLeft':
+
+                break;
+            case 'ControlRight':
+
+                break;
+            case 'AltLeft':
+
+                break;
+            case 'AltRight':
+
+                break;
+            case 'MetaLeft':
+
+                break;
+            case 'Backspace':
+
+                break;
+            case 'Space':
+
+                break;
+            case 'Enter':
+
+                break;
+            case 'Lang':
+
+                break;
+            case 'Delete':
+
+                break;
+
+            default:
+                this.addInput(key.innerHTML);
+                break;
+        }
+
     }
 
 }
