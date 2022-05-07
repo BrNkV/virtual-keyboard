@@ -60,6 +60,8 @@ class Keyboard {
                 console.log(e)
                 // this.addInput(e.innerHTML);
                 this.keyClickCheck(e);
+                // let data = e.getAttribute('data-key');
+                // this.inputArea.dispatchEvent(new KeyboardEvent("keydown", { code: data }));
             })
         })
     }
