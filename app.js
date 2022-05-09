@@ -18,6 +18,7 @@ class Keyboard {
         this.favicon();
         this.generateKeyboard(this.appMount);
         this.keyClickListener();
+        this.createLS();
         this.keyDownListener();
         this.keyUpListener();
         this.inputListener();
@@ -99,6 +100,16 @@ class Keyboard {
         // let evt = new KeyboardEvent('keydown', )
     }
 
+    capsLock() {
+        // let caps = document.querySelector('.key__CapsLock');
+        // caps.addEventListener('click', () => {
+
+        //         console.log('active-btn');
+
+
+        // })
+    }
+
     //FIXME
     inputListener() {
         this.inputArea.addEventListener('change', () => {
@@ -112,6 +123,33 @@ class Keyboard {
         this.inputArea.value = tmp.join('');
     }
 
+
+    createLS() {
+        if (localStorage.getItem('lang') == null) {
+            localStorage.setItem('lang', 'RU');
+        }
+    }
+
+    changeLang() {
+        if (localStorage.getItem('lang') == 'RU') {
+            this.lang = 'EN';
+            this.keysLang = getKeys(this.lang);
+            this.generateKeyboard(this.appMount);
+            this.keyClickListener();
+            console.log(this.lang);
+            localStorage.setItem('lang', 'EN');
+            return;
+        } else if (localStorage.getItem('lang') == 'EN') {
+            this.lang = 'RU';
+            this.keysLang = getKeys(this.lang);
+            this.generateKeyboard(this.appMount);
+            this.keyClickListener();
+            console.log(this.lang);
+            localStorage.setItem('lang', 'RU');
+            return;
+        }
+    }
+
     keyClickCheck(key) {
         let data = key.getAttribute('data-key');
 
@@ -122,6 +160,7 @@ class Keyboard {
                 break;
             case 'CapsLock':
                 this.inputFocus();
+                this.capsLock();
                 break;
             case 'ShiftLeft':
                 this.inputFocus();
@@ -158,6 +197,7 @@ class Keyboard {
                 break;
             case 'Lang':
                 this.inputFocus();
+                this.changeLang();
                 break;
             case 'Delete':
                 this.inputFocus();
