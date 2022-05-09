@@ -118,7 +118,7 @@ class Keyboard {
         switch (data) {
             case 'Tab':
                 this.inputFocus();
-                this.addInput('        ');
+                this.addInput('\t');
                 break;
             case 'CapsLock':
                 this.inputFocus();
@@ -154,6 +154,7 @@ class Keyboard {
                 break;
             case 'Enter':
                 this.inputFocus();
+                this.addInput('\n');
                 break;
             case 'Lang':
                 this.inputFocus();
