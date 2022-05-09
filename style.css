@@ -41,9 +41,9 @@ body {
     cursor: pointer;
 }
 
-/* .key:hover {
-    background: rgba(0, 0, 0, 0.144);
-} */
+.key:active {
+    background: rgba(0, 0, 0, 0);
+}
 
 .key__Backspace,
 .key__ShiftRight,
@@ -71,4 +71,8 @@ body {
 .key__Space {
     grid-column-start: 5;
     grid-column-end: 10;
+}
+
+.active-btn{
+    background: rgba(0, 0, 0, 0);
 }

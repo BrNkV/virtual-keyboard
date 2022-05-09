@@ -19,6 +19,7 @@ class Keyboard {
         this.generateKeyboard(this.appMount);
         this.keyClickListener();
         this.keyDownListener();
+        this.keyUpListener();
         this.inputListener();
 
 
@@ -66,17 +67,38 @@ class Keyboard {
         })
     }
 
-    //FIXME
+
     keyDownListener() {
-        this.inputArea.addEventListener('keydown', (e) => {
+        window.addEventListener('keydown', (e) => {
             this.inputFocus();
-            // console.dir(e.target);
+            e.preventDefault();
+            console.log(e.code);
+            console.log(e);
+            // let btn = document.querySelector(`.key__${e.code}`);
+            let btn = this.keyClassActiveToggle(e.code);
+            this.keyClickCheck(btn);
+            btn.classList.add('active-btn');
         })
     }
+    keyUpListener() {
+        window.addEventListener('keyup', (e) => {
+            this.inputFocus();
+            console.dir(e.code);
+            this.keyClassActiveToggle(e.code).classList.remove('active-btn');
+        })
+    }
+    keyClassActiveToggle(btnClass) {
+        let btn = document.querySelector(`.key__${btnClass}`);
+        // btn.classList.toggle('active-btn')
+        return btn;
+    }
+
     //FIXME
     addInput(symbol) {
         this.inputArea.value += `${symbol}`;
+        // let evt = new KeyboardEvent('keydown', )
     }
+
     //FIXME
     inputListener() {
         this.inputArea.addEventListener('change', () => {
@@ -84,51 +106,60 @@ class Keyboard {
         })
     }
 
+    backSpace() {
+        let tmp = [...this.inputArea.value];
+        tmp.pop();
+        this.inputArea.value = tmp.join('');
+    }
+
     keyClickCheck(key) {
         let data = key.getAttribute('data-key');
 
         switch (data) {
             case 'Tab':
-
+                this.inputFocus();
+                this.addInput('        ');
                 break;
             case 'CapsLock':
-
+                this.inputFocus();
                 break;
             case 'ShiftLeft':
-
+                this.inputFocus();
                 break;
             case 'ShiftRight':
-
+                this.inputFocus();
                 break;
             case 'ControlLeft':
-
+                this.inputFocus();
                 break;
             case 'ControlRight':
-
+                this.inputFocus();
                 break;
             case 'AltLeft':
-
+                this.inputFocus();
                 break;
             case 'AltRight':
-
+                this.inputFocus();
                 break;
             case 'MetaLeft':
-
+                this.inputFocus();
                 break;
             case 'Backspace':
-
+                this.inputFocus();
+                this.backSpace();
                 break;
             case 'Space':
-
+                this.inputFocus();
+                this.addInput(' ');
                 break;
             case 'Enter':
-
+                this.inputFocus();
                 break;
             case 'Lang':
-
+                this.inputFocus();
                 break;
             case 'Delete':
-
+                this.inputFocus();
                 break;
 
             default:
