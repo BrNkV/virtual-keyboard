@@ -183,6 +183,46 @@ class Keyboard {
 
     }
 
+    shiftKey(data) {
+        console.log('DATA: ' + data)
+        if (localStorage.getItem('lang') == 'RU') {
+            this.lang = 'RUsh';
+            this.keysLang = getKeys(this.lang);
+            this.generateKeyboard(this.appMount);
+            this.keyClickListener();
+            console.log(this.lang);
+            localStorage.setItem('lang', 'RUsh');
+            return;
+        }
+        if (localStorage.getItem('lang') == 'EN') {
+            this.lang = 'ENsh';
+            this.keysLang = getKeys(this.lang);
+            this.generateKeyboard(this.appMount);
+            this.keyClickListener();
+            console.log(this.lang);
+            localStorage.setItem('lang', 'RU');
+            return;
+        }
+        if (localStorage.getItem('lang') == 'RUsh') {
+            this.lang = 'RU';
+            this.keysLang = getKeys(this.lang);
+            this.generateKeyboard(this.appMount);
+            this.keyClickListener();
+            console.log(this.lang);
+            localStorage.setItem('lang', 'RU');
+            return;
+        }
+        if (localStorage.getItem('lang') == 'ENsh') {
+            this.lang = 'EN';
+            this.keysLang = getKeys(this.lang);
+            this.generateKeyboard(this.appMount);
+            this.keyClickListener();
+            console.log(this.lang);
+            localStorage.setItem('lang', 'EN');
+            return;
+        }
+    }
+
     keyClickCheck(key) {
         let data = key.getAttribute('data-key');
 
@@ -197,6 +237,7 @@ class Keyboard {
                 break;
             case 'ShiftLeft':
                 this.inputFocus();
+                this.shiftKey(data);
                 break;
             case 'ShiftRight':
                 this.inputFocus();
