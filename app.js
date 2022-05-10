@@ -125,7 +125,7 @@ class Keyboard {
 
 
     createLS() {
-        if (localStorage.getItem('lang') == null) {
+        if (localStorage.getItem('lang') == null || localStorage.getItem('lang') !== 'RU') {
             localStorage.setItem('lang', 'RU');
         }
     }
@@ -148,6 +148,33 @@ class Keyboard {
             localStorage.setItem('lang', 'RU');
             return;
         }
+    }
+
+    langSwitcher() {
+        // let lShift = document.querySelector('.key__ShiftLeft');
+        // let lAlt = document.querySelector('.key key__AltLeft');
+
+
+        // window.addEventListener("keydown", (e) => {
+        // if (e.key == 'Shift' && e.key == 'Alt') {
+        //     this.changeLang();
+        // }
+        // if (e.key == 'Shift') {
+        //     if (e.key == 'Alt') {
+        //         this.changeLang();
+        //     }
+        // }
+
+        // });
+
+        // window.addEventListener("keyup", (e) => {
+        //     if (e.key == 'Shift') {
+        //         if (e.key == 'Alt') {
+        //             this.changeLang();
+        //         }
+        //     }
+        // });
+
     }
 
     keyClickCheck(key) {
