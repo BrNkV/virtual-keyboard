@@ -123,6 +123,12 @@ class Keyboard {
         this.inputArea.value = tmp.join('');
     }
 
+    delKey() {
+        let tmp = [...this.inputArea.value];
+        tmp.shift();
+        this.inputArea.value = tmp.join('');
+    }
+
 
     createLS() {
         if (localStorage.getItem('lang') == null || localStorage.getItem('lang') !== 'RU') {
@@ -228,6 +234,7 @@ class Keyboard {
                 break;
             case 'Delete':
                 this.inputFocus();
+                this.delKey();
                 break;
 
             default:
