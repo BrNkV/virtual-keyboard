@@ -123,6 +123,12 @@ class Keyboard {
         this.inputArea.value = tmp.join('');
     }
 
+    delKey() {
+        let tmp = [...this.inputArea.value];
+        tmp.shift();
+        this.inputArea.value = tmp.join('');
+    }
+
 
     createLS() {
         if (localStorage.getItem('lang') == null || localStorage.getItem('lang') !== 'RU') {
@@ -228,6 +234,7 @@ class Keyboard {
                 break;
             case 'Delete':
                 this.inputFocus();
+                this.delKey();
                 break;
 
             default:
@@ -240,6 +247,17 @@ class Keyboard {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+    document.querySelector('body').innerHTML = (`
+    <!-- <textarea placeholder="Введите текст..." class="keyboard__input" cols="30" rows="10" autofocus></textarea> -->
+    <textarea
+        placeholder="Введите текст... (КЛАВИАТУРА ГОТОВА НЕ ПОЛНОСТЬЮ! просьба по возможности проверить еще раз позже...)"
+        class="keyboard__input" cols="30" rows="10" autofocus></textarea>
+    <div class="app"></div>
+    <div class="desc">
+        <p>Клавиатура создана в операционной системе Windows</p>
+        <p>Для переключения языка комбинация: левыe shift + alt</p>
+    </div>
+    `)
     new Keyboard('RU', '.app', '.keyboard__input').init();
     // new Keyboard('EN', '.app', '.keyboard__input').init();
 });
